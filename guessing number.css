@@ -1,0 +1,31 @@
+/* Variabes */
+/* Mixin's */
+<style type>="text/css">
+body {
+    font-family: arial, sans-serif;
+    background-color: #ECD1FF;
+    color: #000000;
+    height: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+h1,
+h2,
+h3,
+p {
+    font-family: arial, sans-serif;
+    font-weight: 50;
+    text-transform: uppercase;
+    margin: 5px 0;
+}
+h1 {
+    font-size: 2.6em;
+}
+h2 {
+    font-size: 1.6em;
+}
+p {
+    font-size: 1.6em;
+}

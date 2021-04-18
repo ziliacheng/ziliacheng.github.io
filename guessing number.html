@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guessing Game</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="guessing number.css">
+
+</head>
+<body>
+<h1>Guess the number!</h1>
+<p>Now you can set a range and guess the random number. In each turn you have 10 chances. Good Luck for you!</p>
+<h3>Please set the number range：<span id="min"></span>---<span id="max"></span></h3>
+<h3>Please guess the number：<input type="text" id="guess"/></h3><button id="btn" onclick="run()">提交</button>
+<h3> <span id="info"></span></h3>
+
+</body>
+</html>
+<script>
+
+
+
+    var min = prompt('Please type a minimum value.')
+    var max = prompt('Please type a maximum value.')
+
+    document.getElementById("min").innerHTML=min;
+    document.getElementById("max").innerHTML=max;
+
+
+
+    function guessTip(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+
+    var answer = guessTip(min, max);
+    console.log('The answer is ' + answer);
+
+
+    var i = 0;
+
+
+
+	function run(){
+
+    	var guessInput = document.getElementById("guess").value;
+
+
+
+
+        guessInput = guessInput * 1;
+
+
+        if (i > 10) {
+            document.getElementById("guess").innerHTML="Sorry, the count has ran out.";
+            document.getElementById("btn").disabled="disabled";
+        }
+
+
+
+        if (guessInput == answer) {
+            document.getElementById("info").innerHTML="Congratuaion! You get the correct answer!";
+            document.getElementById("info").style.color="green";
+            document.getElementById("btn").disabled="disabled";
+
+        } else if (guessInput > answer) {
+            console.log("Your guess is too high! Try again!")
+            document.getElementById("info").innerHTML="Your guess is too high! Try again!";
+            document.getElementById("info").style.color="red";
+        } else if (guessInput < answer) {
+            console.log("Your guess is too low! Try again!")
+            document.getElementById("info").innerHTML="Your guess is too low! Try again!";
+            document.getElementById("info").style.color="red";
+        }
+
+
+        var n = 10 - i;
+        console.log("Your guess is "+guessInput);
+        console.log('There are ' + n + ' more chances.')
+
+
+    }
+</script>
